@@ -1,62 +1,48 @@
 public class Prova {
     
+    String domanda;
+    public int rispostaCorretta;
+    public int difficolta;
 
-    public double rispostaCorretta;
-    public int[] difficolta = {1,2,3};
 
-
-    public Prova(int[] difficolta, double rispostaCorretta){
+    public Prova(int difficolta){
 
             this.difficolta = difficolta;
-            this.rispostaCorretta = rispostaCorretta;
+            generaDomanda(difficolta);
     }
-
-
     
 
     
 
-    Prova prova = new Prova(difficolta, rispostaCorretta);
-    
-    public void difficolta(int[] diff) {
-        int index = 1;
-        for (int difficolta : diff) { // Itera sull'array delle difficoltà
-            System.out.println("Difficoltà " + index + ": " + difficolta);
-    
-            // Esegui task specifici per ogni difficoltà
-            switch (difficolta) {
-                case 1:
-                    System.out.println("Task per la difficoltà 1: Avviare il livello facile.");
-                    // Inserisci il codice specifico per la difficoltà 1
-                    break;
-    
-                case 2:
-                    System.out.println("Task per la difficoltà 2: Avviare il livello intermedio.");
-                    // Inserisci il codice specifico per la difficoltà 2
-                    break;
-    
-                case 3:
-                    System.out.println("Task per la difficoltà 3: Avviare il livello difficile.");
-                    // Inserisci il codice specifico per la difficoltà 3
-                    break;
-    
-                default:
-                    System.out.println("Difficoltà non riconosciuta: " + difficolta);
-                    // Inserisci un task di default, se necessario
-                    break;
-            }
-            index++;
+    Prova prova = new Prova(difficolta);
+
+    private void generaDomanda(int difficoltà) {
+
+        // Logica per generare una domanda basata sulla difficoltà
+        // Esempio semplice:
+        if (difficoltà == 1) {
+            domanda = "Quanto fa 2 + 2?";
+            rispostaCorretta = 4;
+        } else if (difficoltà == 2) {
+            domanda = "Quanto fa 10 / 2?";
+            rispostaCorretta = 5;
+        } else if (difficoltà == 3) {
+            domanda = "Quanto fa 15 * 3?";
+            rispostaCorretta = 45;
         }
     }
-    
 
-    public int verificaRisposta(int risposta)
-    {
 
-        if(risposta == )
-
-        return
+    public boolean verificaRisposta(int risposta) {
+        return risposta == rispostaCorretta;
     }
+ 
+    public String getDomanda() {
+        return domanda;
+    }
+    }
+
+
 
     
     
