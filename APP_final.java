@@ -3,13 +3,13 @@ import java.util.Scanner;
 public class APP_final {
     Utente utenteCorrente;
 
-    public boolean login(String nome, String password, Registro registro) {
+    public int login(String nome, String password, Registro registro) {
         Utente utente = registro.trovaUtente(nome); //verifica se l'utente esiste nel registro e se le credenziali sono corrette.
-        if (utente != null && utente.login(nome, password)) {  // Se entrambe le condizioni sono soddisfatte
+        if (utente != null && utente.login(nome, password) == 1) {  // Se entrambe le condizioni sono soddisfatte
             utenteCorrente = utente;  //imposta l'utente corrente (utenteCorrente)
-            return true; //restituisce true
+            return 1; //restituisce true
         }
-        return false; //, altrimenti restituisce false.
+        return 0; //, altrimenti restituisce false.
     }
 
     public void eseguiProva(Prova prova) {
