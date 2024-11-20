@@ -8,8 +8,7 @@ public class Prova {
     public Prova(int difficolta, String domanda){
 
             this.difficolta = difficolta;
-            this.domanda = domanda;
-            generaDomanda(difficolta);
+            this.domanda = generaDomanda(difficolta);
     }
 
     public String generaDomanda(int difficolta) {
