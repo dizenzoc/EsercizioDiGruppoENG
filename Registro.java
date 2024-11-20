@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Registro {
     ArrayList<Utente> utenti = new ArrayList();
 
-    
+
     //Metodo che controlla prende un oggetto Utente come parametro e controlla se il nome inserito è già esistente in un altro oggetto.
     public void aggiungiutente(Utente tmp){
         boolean flag = ricercautente(tmp);
@@ -29,13 +29,14 @@ public class Registro {
         }
     }
 
+            //valore di ritorno -> Utente
     public boolean ricercautente(Utente tmp){
         for (int i=0; i<this.utenti.size(); ++i){
             if(tmp.nome.toLowercase().equals(this.utenti.get(i).nome.toLowercase()){
-                return true;
+                return this.utenti.get(i);
             }
         }
-        return false;
+        return;
     }
 
     public void stampautenti(){
