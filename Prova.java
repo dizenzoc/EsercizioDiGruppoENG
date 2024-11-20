@@ -5,9 +5,7 @@ public class Prova {
     public int difficolta;
 
 
-    public Prova(int difficolta, String domanda){
-
-            this.difficolta = difficolta;
+    public Prova(String domanda){
             this.domanda = generaDomanda(difficolta);
     }
 
