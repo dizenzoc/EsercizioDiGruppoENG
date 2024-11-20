@@ -12,16 +12,16 @@ public class APP_final {
         return 0; //, altrimenti restituisce false.
     }
 
-    public void eseguiProva(Prova prova) {
+    public void eseguiProva(Prova prova, int difficolta) {
         if (utenteCorrente != null) { //verifico se esiste un utente loggato
             Scanner scanner = new Scanner(System.in);
-            System.out.println(prova.generaDomanda()); //utilizzo uno Scanner per leggere la risposta dell'utente dalla console.
+            System.out.println(prova.generaDomanda(difficolta)); //utilizzo uno Scanner per leggere la risposta dell'utente dalla console.
             int risposta = scanner.nextInt();
             if (prova.verificaRisposta(risposta)) {
                 utenteCorrente.punteggio = (utenteCorrente.punteggio() + 10); //Se la risposta è corretta, incrementa il punteggio dell'utente di 10 punti.
                 System.out.println("Risposta corretta! Punteggio: " + utenteCorrente.punteggio());
             } else {
-                utenteCorrente.setPunteggio(utenteCorrente.getPunteggio() - 5); // Se la risposta è sbagliata, decrementa il punteggio dell'utente di 5 punti.
+                utenteCorrente.setPunteggio(utenteCorrente.punteggio() - 5); // Se la risposta è sbagliata, decrementa il punteggio dell'utente di 5 punti.
                 System.out.println("Risposta sbagliata. Punteggio: " + utenteCorrente.punteggio());
             }
         }
