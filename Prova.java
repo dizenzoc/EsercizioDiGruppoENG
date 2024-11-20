@@ -11,7 +11,7 @@ public class Prova {
             generaDomanda(difficolta);
     }
 
-    private void generaDomanda(int difficolta) {
+    public void generaDomanda(int difficolta) {
         switch (difficolta) {
             case 1:
                 domanda = "Quanto fa 2 + 2?";

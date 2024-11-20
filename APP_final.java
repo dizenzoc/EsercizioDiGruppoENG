@@ -15,7 +15,7 @@ public class APP_final {
     public void eseguiProva(Prova prova) {
         if (utenteCorrente != null) { //verifico se esiste un utente loggato
             Scanner scanner = new Scanner(System.in);
-            System.out.println(prova.domanda()); //utilizzo uno Scanner per leggere la risposta dell'utente dalla console.
+            System.out.println(prova.generaDomanda()); //utilizzo uno Scanner per leggere la risposta dell'utente dalla console.
             int risposta = scanner.nextInt();
             if (prova.verificaRisposta(risposta)) {
                 utenteCorrente.punteggio = (utenteCorrente.punteggio() + 10); //Se la risposta è corretta, incrementa il punteggio dell'utente di 10 punti.
