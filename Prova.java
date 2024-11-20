@@ -10,25 +10,25 @@ public class Prova {
             this.difficolta = difficolta;
             generaDomanda(difficolta);
     }
-    
 
-    
-
-    Prova prova = new Prova(difficolta);
-
-    private void generaDomanda(int difficoltà) {
-
-        // Logica per generare una domanda basata sulla difficoltà
-        // Esempio semplice:
-        if (difficoltà == 1) {
-            domanda = "Quanto fa 2 + 2?";
-            rispostaCorretta = 4;
-        } else if (difficoltà == 2) {
-            domanda = "Quanto fa 10 / 2?";
-            rispostaCorretta = 5;
-        } else if (difficoltà == 3) {
-            domanda = "Quanto fa 15 * 3?";
-            rispostaCorretta = 45;
+    private void generaDomanda(int difficolta) {
+        switch (difficolta) {
+            case 1:
+                domanda = "Quanto fa 2 + 2?";
+                rispostaCorretta = 4;
+                break;
+            case 2:
+                domanda = "Quanto fa 10 / 2?";
+                rispostaCorretta = 5;
+                break;
+            case 3:
+                domanda = "Quanto fa 15 * 3?";
+                rispostaCorretta = 45;
+                break;
+            default:
+                domanda = "Difficoltà non valida.";
+                rispostaCorretta = -1; // Valore di fallback
+                break;
         }
     }
 
@@ -40,21 +40,5 @@ public class Prova {
     public String getDomanda() {
         return domanda;
     }
+
     }
-
-
-
-    
-    
-
-    
-
-
-
-
-
-
-
-
-
-}
