@@ -1,31 +1,34 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Gioca {
     public static void main(String[] args) {
         Scanner myScanInt = new Scanner(System.in);
         Scanner myScanStr = new Scanner(System.in);
-        ArrayList<Prova> prove = new ArrayList();
-        Utente utente = new Utente();
-        String pwd;
         Registro registro = new Registro();
- 
-        System.out.println("Inserisci ricerca");
-        utente.nome = myScanStr.nextLine();
+        APP_final app = new APP_final();
        
-    }
+        
+        Utente utente1 = new Utente("Mario", "password123");
+        Utente utente2 = new Utente("Luigi", "password456");
+        registro.aggiungiUtente(utente1);
+        registro.aggiungiUtente(utente2);
+
+        String nome = "Mario";
+        String password = "password123";
  
-    public static int login(Registro registro, String nome, String pwd) {
-        int success = 0;
-        Utente utente = new Utente();
+        if (app.login(nome, password, registro ) == 1) {
+            System.out.println("Login effettuato con successo!");
  
-        utente = registro.ricercaUtente(utente);
-        success = utente.login(nome, pwd);
+            // Esecuzione di una prova matematica
+            Prova prova = new Prova(1); // Difficoltà 1
+            app.eseguiProva(prova);
  
-        return success;
-    }
- 
-    public int registra(Registro registro, String utente, String pwd) {
-        int success = 0;
-            Registro.aggiuntiUtente(utente, pwd);
-        return success;
+            // Mostra il punteggio attuale
+            app.mostraPunteggio();
+        } else {
+            System.out.println("Nome utente o password errati.");
+        } 
     }
  
 }
