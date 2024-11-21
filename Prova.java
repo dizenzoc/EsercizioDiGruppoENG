@@ -5,30 +5,28 @@ public class Prova {
     public int difficolta;
 
 
-    public Prova(int difficolta){
-
-            this.difficolta = difficolta;
-            generaDomanda(difficolta);
+    public Prova(String domanda){
+            this.domanda = generaDomanda(difficolta);
     }
 
-    private void generaDomanda(int difficolta) {
+    public String generaDomanda(int difficolta) {
         switch (difficolta) {
             case 1:
                 domanda = "Quanto fa 2 + 2?";
                 rispostaCorretta = 4;
-                break;
+                return domanda;
             case 2:
                 domanda = "Quanto fa 10 / 2?";
                 rispostaCorretta = 5;
-                break;
+                return domanda;
             case 3:
                 domanda = "Quanto fa 15 * 3?";
                 rispostaCorretta = 45;
-                break;
+                return domanda;
             default:
                 domanda = "Difficoltà non valida.";
                 rispostaCorretta = -1; // Valore di fallback
-                break;
+                return domanda;
         }
     }
 
