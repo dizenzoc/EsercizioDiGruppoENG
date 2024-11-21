@@ -5,11 +5,19 @@ public class Prova {
     public int difficolta;
 
 
-    public Prova(String domanda){
-            this.domanda = generaDomanda(difficolta);
+    //l'oggetto deve contenere solamente l'informazione della difficolta
+    public Prova(int diff){
+
+        // `this.difficolta` si riferisce alla variabile d'istanza,
+        // mentre `difficolta` senza `this` è il parametro del costruttore
+        this.difficolta = diff;
+        this.domanda = generaDomanda();
     }
 
-    public String generaDomanda(int difficolta) {
+
+    //uso la difficolta che è variabile di istanza
+
+    public String generaDomanda() {
         switch (difficolta) {
             case 1:
                 domanda = "Quanto fa 2 + 2?";
@@ -37,6 +45,9 @@ public class Prova {
  
     public String getDomanda() {
         return domanda;
+    }
+    public int getDifficolta() {
+        return difficolta;
     }
 
     }
