@@ -1,15 +1,13 @@
-import java.io.File;
-import java.util.Scanner;
 
 public class Utente {
 
-    String username;
+    String nome;
     String password;
     int punteggio;
 
     public Utente (String username, String password){
 
-        this.username = username;
+        this.nome = username;
         this.password = password;
         this.punteggio = 0;
 
@@ -18,8 +16,8 @@ public class Utente {
     //metodo modifica utente
 
     public void modificaUtente (String nuovoUtente){
-
-        this.username = nuovoUtente;
+    
+        this.nome = nuovoUtente;
 
     }
     
@@ -35,6 +33,10 @@ public class Utente {
             System.out.println("La nuova password deve essere diversa dalla precedente!");
 
 
+    }
+
+    public void stampa(){
+        System.out.println("\nNome utente: " + this.nome + "\nPunteggio: 0");
     }
 
 }
