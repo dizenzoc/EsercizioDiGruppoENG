@@ -4,7 +4,7 @@ public class APP_final {
     Utente utenteCorrente;
 
     public int login(String nome, String password, Registro registro) {
-        Utente utente = registro.trovaUtente(nome); //verifica se l'utente esiste nel registro e se le credenziali sono corrette.
+        Utente utente = registro.ricercaUtente(nome); //verifica se l'utente esiste nel registro e se le credenziali sono corrette.
         if (utente.nome.equalsIgnoreCase(nome) && utente.password.equals(password)) {  // Se entrambe le condizioni sono soddisfatte
             utenteCorrente = utente;  //imposta l'utente corrente (utenteCorrente)
             return 1; //restituisce true

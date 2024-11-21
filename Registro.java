@@ -6,12 +6,12 @@ public class Registro {
 
     //Metodo che controlla prende un oggetto Utente come parametro e controlla se il nome inserito è già esistente in un altro oggetto.
     public void aggiungiUtente(Utente tmp){
-        
 
-        if (ricercaUtente(tmp.nome) != null){
-            //SE IL NOME UTENTE NON ESISTE GIA' NELL'ARRAYLIST utenti INSERISCO IL NUOVO UTENTE
+
+        if (ricercaUtente(tmp.nome) == null){
             this.utenti.add(tmp);
-            return;
+            //SE IL NOME UTENTE NON ESISTE GIA' NELL'ARRAYLIST utenti INSERISCO IL NUOVO UTENTE
+            System.out.println("Utente aggiunto");
         }
             //ALTRIMENTI STAMPO UN ERRORE ED ESCO DALLA FUNZIONE 
         else {
@@ -21,7 +21,7 @@ public class Registro {
     }
 
     public void rimuoviUtente(String tmp){
-        
+
         if (ricercaUtente(tmp) != null){
             this.utenti.remove(ricercaUtente(tmp));
         } else {
@@ -32,7 +32,7 @@ public class Registro {
             //valore di ritorno -> Utente
     public Utente ricercaUtente(String nome){
         for (int i=0; i<this.utenti.size(); ++i){
-            if(nome.equals(this.utenti.get(i).nome.toLowerCase())){
+            if(nome.equalsIgnoreCase(this.utenti.get(i).nome.toLowerCase())){
                 return this.utenti.get(i);
             }
         }
