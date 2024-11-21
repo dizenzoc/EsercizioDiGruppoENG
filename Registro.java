@@ -1,14 +1,14 @@
 import java.util.ArrayList;
 
-public class Registro {
-    ArrayList<Utente> utenti = new ArrayList();
 
+public class Registro {
+    ArrayList<Utente> utenti = new ArrayList<Utente>();
 
     //Metodo che controlla prende un oggetto Utente come parametro e controlla se il nome inserito è già esistente in un altro oggetto.
-    public void aggiungiutente(Utente tmp){
-        boolean flag = ricercautente(tmp);
+    public void aggiungiUtente(Utente tmp){
+        
 
-        if (!flag){
+        if (ricercaUtente(tmp.nome) != null){
             //SE IL NOME UTENTE NON ESISTE GIA' NELL'ARRAYLIST utenti INSERISCO IL NUOVO UTENTE
             this.utenti.add(tmp);
             return;
@@ -20,26 +20,26 @@ public class Registro {
         }
     }
 
-    public void rimuoviutente(Utente tmp){
-        boolean flag = ricercautente(tmp);
-        if (flag){
-            this.utenti.remove(tmp);
+    public void rimuoviUtente(String tmp){
+        
+        if (ricercaUtente(tmp) != null){
+            this.utenti.remove(ricercaUtente(tmp));
         } else {
             System.out.println("L'utente non è presente nel registro");
         }
     }
 
             //valore di ritorno -> Utente
-    public boolean ricercautente(Utente tmp){
+    public Utente ricercaUtente(String nome){
         for (int i=0; i<this.utenti.size(); ++i){
-            if(tmp.nome.toLowercase().equals(this.utenti.get(i).nome.toLowercase()){
+            if(nome.equals(this.utenti.get(i).nome.toLowerCase())){
                 return this.utenti.get(i);
             }
         }
-        return;
+        return null;
     }
 
-    public void stampautenti(){
+    public void stampaUtenti(){
         for (int i=0; i<this.utenti.size(); ++i){
             this.utenti.get(i).stampa();
         }
